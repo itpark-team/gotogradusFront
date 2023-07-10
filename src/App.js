@@ -11,7 +11,7 @@ const App = () => {
             <Header/>
             <Routes>
                 <Route path="/" element={<Categories/>}/>
-                <Route path="/category/:categoryId" element={<ProductsInCategories/>}/>
+                <Route path="/category/:categoryId" element={<ProductsInCategories/>}/>npm
             </Routes>
             <Footer/>
         </div>
