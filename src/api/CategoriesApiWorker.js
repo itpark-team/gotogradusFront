@@ -5,7 +5,8 @@ class CategoriesApiWorker {
 
     constructor() {
         this.#axios = axios.create({
-            baseURL: "http://localhost/api/categories"
+            //baseURL: "http://localhost/api/categories"
+            baseURL: "http://localhost:8010/categories"
         });
     }
 

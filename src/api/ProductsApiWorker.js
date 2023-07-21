@@ -5,7 +5,8 @@ class ProductsApiWorker {
 
     constructor() {
         this.#axios = axios.create({
-            baseURL: "http://localhost/api/products"
+            //baseURL: "http://localhost/api/products"
+            baseURL: "http://localhost:8010/products"
         });
     }
 
