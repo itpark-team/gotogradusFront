@@ -4,7 +4,6 @@ import AuthApiWorker from "../../api/AuthApiWorker";
 import UsersApiWorker from "../../api/UsersApiWorker";
 import LocalStorageWorker from "../store/LocalStorageWorker";
 import {useNavigate} from "react-router-dom";
-import Categories from "../categories/Categories";
 
 
 const Auth = () => {
@@ -23,7 +22,7 @@ const Auth = () => {
             };
             authApiWorker.checkPhoneNumber(checkPhone).then(
                 response => {
-                    alert("success " + response.data);
+                    alert("success sms" + response.data);
                 }
             ).catch(
                 error => {

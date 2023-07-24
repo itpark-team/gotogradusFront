@@ -10,8 +10,12 @@ class ProductsApiWorker {
         });
     }
 
-    async getAllByCategoryId(id) {
-        return await this.#axios.get("/get-by-category-id/" + id);
+    async getAllByCategoryId(id, token) {
+        return await this.#axios.get("/get-by-category-id/" + id, {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
     }
 }
 

@@ -3,6 +3,7 @@ import ProductsApiWorker from "../../api/ProductsApiWorker";
 import {Alert} from "antd";
 import React, {useEffect, useState} from 'react';
 import ProductsInCategoriesList from "./ProductsInCategoriesList";
+import LocalStorageWorker from "../store/LocalStorageWorker";
 
 const ProductsInCategories = () => {
 
@@ -12,8 +13,12 @@ const ProductsInCategories = () => {
     let productsApiWorker = new ProductsApiWorker();
     let [hasApiError, setHasApiError] = useState(false);
 
+    let localStorageWorker = new LocalStorageWorker();
+    let token = localStorageWorker.get("token");
+
     useEffect(() => {
-        productsApiWorker.getAllByCategoryId(categoryId).then(
+
+        productsApiWorker.getAllByCategoryId(categoryId, token).then(
             response => {
                 setProducts(response.data);
             }
