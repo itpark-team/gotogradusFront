@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import LocalStorageWorker from "../store/LocalStorageWorker";
 import CartsApiWorker from "../../api/CartsApiWorker";
+import OrdersApiWorker from "../../api/OrdersApiWorker";
+import CartItems from "./CartItems";
 
 const Cart = () => {
     let localStorageWorker = new LocalStorageWorker();
@@ -9,7 +11,6 @@ const Cart = () => {
     let token = localStorageWorker.get("token");
 
     let cartsApiWorker = new CartsApiWorker();
-
     let [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
@@ -24,20 +25,15 @@ const Cart = () => {
         )
     }, []);
 
+
+
     return (
         <div>
             {
                 cartItems.length === 0
                     ? <h2>Корзина пуста</h2>
-                    : cartItems.map(item => {
-                        return (
-                            <div>
-                                <b>{item.productName}</b> | {item.productPrice} | <i>{item.amount}</i> | total price = {item.productPrice*item.amount}
-                            </div>
-                        )
-                    })
+                    : <CartItems cartItems={cartItems}/>
             }
-
         </div>
     );
 };
